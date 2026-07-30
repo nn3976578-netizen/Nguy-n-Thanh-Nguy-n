@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Cá Nhân - NGUYỄN THANH NGUYÊN</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #0f172a; 
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(108, 92, 231, 0.2) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(0, 210, 247, 0.15) 0px, transparent 50%);
+            color: #f8fafc;
+            padding: 50px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cv-container {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(30, 41, 59, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .sidebar {
+            flex: 1;
+            min-width: 320px;
+            background: rgba(15, 23, 42, 0.6);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 50px 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+      
+        .avatar-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -4px; left: -4px; right: -4px; bottom: -4px;
+            background: linear-gradient(135deg, #818cf8, #34d399);
+            border-radius: 50%;
+            z-index: -1;
+            box-shadow: 0 0 20px rgba(129, 140, 248, 0.5);
+        }
+
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: #1e293b;
+            object-fit: cover;
+            display: block;
+        }
+
+        .name {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #fff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #34d399; 
+            background: rgba(52, 211, 153, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid rgba(52, 211, 153, 0.2);
+        }
+
+        .contact-info {
+            width: 100%;
+            text-align: left;
+        }
+
+        .contact-info h3 {
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            color: #94a3b8;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .contact-item {
+            margin-bottom: 18px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 12px 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .contact-item span:first-child {
+            display: block;
+            font-size: 11px;
+            font-weight: bold;
+            color: #818cf8;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .contact-item span:last-child {
+            font-size: 13.5px;
+            color: #e2e8f0;
+            word-break: break-all;
+            line-height: 1.4;
+        }
+
+      
+        .main-content {
+            flex: 2;
+            min-width: 380px;
+            padding: 50px 45px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            color: #818cf8;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+       
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, rgba(129, 140, 248, 0.4), transparent);
+        }
+
+        .section p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #cbd5e1;
+        }
+
+        .section p strong {
+            color: #fff;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+        }
+
+        .skill-list li {
+            background: rgba(129, 140, 248, 0.1);
+            color: #a5b4fc;
+            border: 1px solid rgba(129, 140, 248, 0.2);
+            padding: 8px 18px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 13.5px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-list li:hover {
+            background: rgba(129, 140, 248, 0.25);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(129, 140, 248, 0.2);
+        }
+
+        /* Card giới thiệu Dự án Con */
+        .project-card {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #34d399;
+            padding: 25px;
+            border-radius: 4px 16px 16px 4px;
+            margin-top: 15px;
+        }
+
+        .project-card h4 {
+            font-size: 19px;
+            color: #fff;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .project-tech {
+            margin-bottom: 15px; 
+            font-size: 13px; 
+            color: #34d399;
+            font-weight: 500;
+        }
+
+        /* Nút chuyển trang mượt mà */
+        .btn-view-project {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            background: linear-gradient(135deg, #818cf8 0%, #6366f1 100%);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-view-project:hover {
+            background: linear-gradient(135deg, #9333ea 0%, #6366f1 100%);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(147, 51, 234, 0.4);
+        }
+
+       
+        @media (max-width: 768px) {
+            body { padding: 20px 10px; }
+            .sidebar { padding: 40px 20px; border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+            .main-content { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+        <!-- Cột Trái -->
+        <div class="sidebar">
+            <div class="avatar-wrapper">
+                <img class="avatar" src="OIP (2).jpg" alt="Avatar Khưu Quang Minh">
+            </div>
+            <div class="name">NGUYỄN THANH NGUYÊN</div>
+            <div class="title">Web Developer (HSSV / Worker)</div>
+
+            <div class="contact-info">
+                <h3>Thông tin liên hệ</h3>
+                <div class="contact-item">
+                    <span>Số điện thoại</span>
+                    <span>0932158117</span>
+                </div>
+                <div class="contact-item">
+                    <span>Email</span>
+                    <span>NN6193481@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>Địa chỉ</span>
+                    <span>Đường Sinco, Phường Bình Trị Đông B, TP. Hồ Chí Minh</span>
+                </div>
+            </div>
+        </div>
+
+     
+        <div class="main-content">
+            <div class="section">
+                <h2 class="section-title">Giới thiệu bản thân</h2>
+                <p>Thay vì chỉ học lý thuyết, tôi luôn ưu tiên áp dụng kiến thức vào các dự án thực tế. Dự án Website Quản lý và Đặt đồ ăn là minh chứng cho tinh thần tự học, khả năng giải quyết vấn đề và sự kiên trì của tôi. Tôi luôn sẵn sàng học hỏi công nghệ mới, có tinh thần trách nhiệm cao, làm việc kỷ luật và mong muốn phát triển lâu dài trong môi trường chuyên nghiệp. Tôi sẵn sàng bắt đầu từ những công việc cơ bản để tích lũy kinh nghiệm và đóng góp giá trị cho doanh nghiệp.</p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Học vấn / Trình độ</h2>
+                <p><strong>Trường Đại học Nguyễn Tất Thành</strong> (2024 - 2026)<br><span style="color: #94a3b8; font-size: 14px;">Chuyên ngành: Công nghệ thông tin / Ứng dụng phần mềm</span></p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Kỹ năng công nghệ</h2>
+                <ul class="skill-list">
+                    <li>HTML5 / CSS3</li>
+                    <li>JavaScript (ES6)</li>
+                    <li>Giao diện Responsive</li>
+                    <li>Tư duy logic thuật toán</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Sản phẩm & Dự án cá nhân</h2>
+                <div class="project-card">
+                    <h4>Website Quản Lý và Đặt Đồ Ăn</h4>
+                    <div class="project-tech">Công nghệ: HTML, CSS, JavaScript thuần (No Framework)</div>
+                    <p>➜Website được xây dựng nhằm hỗ trợ người dùng tìm kiếm, xem thông tin và đặt các món ăn một cách nhanh chóng, trực quan. Hệ thống cho phép hiển thị danh sách món ăn theo từng danh mục, xem chi tiết sản phẩm, thêm món vào giỏ hàng, cập nhật số lượng, tính tổng hóa đơn tự động và mô phỏng quy trình đặt hàng. Giao diện được thiết kế Responsive, đảm bảo trải nghiệm tốt trên cả máy tính và thiết bị di động.
+
+<p>➜Các chức năng nổi bật:
+
+<p>●Hiển thị danh sách món ăn theo từng danh mục.</p>
+<p>●Tìm kiếm món ăn theo tên.</p>
+<p>●Xem thông tin chi tiết của từng món ăn.</p>
+<p>●Thêm, xóa và cập nhật số lượng sản phẩm trong giỏ hàng.</p>
+<p>●Tự động tính tổng tiền đơn hàng.</p>
+<p>●Giao diện Responsive tương thích trên nhiều thiết bị.</p>
+<p>●Thiết kế giao diện thân thiện, dễ sử dụng.</p>
+                    
+                  
+                    <a href="k (2).html" class="btn-view-project">Truy cập ứng dụng ngay &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

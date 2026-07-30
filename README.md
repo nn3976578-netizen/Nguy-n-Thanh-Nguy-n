@@ -8,4 +8,4 @@ Link xem bản thiết kế Figma Desktop: https://www.figma.com/design/13anEhms
 
 Link xem bản thiết kế Figma Mobile: https://www.figma.com/design/13anEhmsJ9YBq3m6zMekET/Untitled?node-id=1-2&t=npm7ffj05akRwYye-1
 
-Link bản demo trực tiếp: [https://kingnqb.github.io/BiTp-Gi-aK-/](https://nn3976578-netizen.github.io/Nguy-n-Thanh-Nguy-n/index.html)
+Link bản demo trực tiếp: (https://nn3976578-netizen.github.io/Nguy-n-Thanh-Nguy-n/index.html)
